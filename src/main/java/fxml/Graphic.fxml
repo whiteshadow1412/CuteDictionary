@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <top>
+        <AnchorPane prefHeight="73.0" prefWidth="856.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="searchField" layoutX="32.0" layoutY="47.0" onKeyPressed="#wordlookup" onKeyReleased="#inputsearch" prefHeight="25.0" prefWidth="276.0" />
+                <Button fx:id="searchButton" layoutX="322.0" layoutY="47.0" mnemonicParsing="false" onMouseClicked="#setSearchButton" text="Search" />
+                <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="25.0" prefWidth="176.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="AddWord">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Word">
+                                    <graphic>
+                                        <TextField fx:id="targetAdd" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false" text="Explain">
+                                    <graphic>
+                                        <TextField fx:id="explainAdd" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false">
+                                    <graphic>
+                                        <MenuButton mnemonicParsing="false" onMouseClicked="#add" text="Add" />
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Word">
+                                    <graphic>
+                                        <TextField fx:id="targetEdit" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false" text="Explain">
+                                    <graphic>
+                                        <TextField fx:id="explainEdit" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false">
+                                    <graphic>
+                                        <MenuButton mnemonicParsing="false" onMouseClicked="#eddit" text="Edit" />
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#About" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </MenuBar>
+                <Button layoutX="708.0" layoutY="47.0" mnemonicParsing="false" onMouseReleased="#delete" text="Delete" />
+            </children>
+        </AnchorPane>
+    </top>
+    <bottom>
+        <AnchorPane prefHeight="0.0" prefWidth="820.0" BorderPane.alignment="CENTER" />
+    </bottom>
+    <left>
+        <AnchorPane prefHeight="293.0" prefWidth="239.0" BorderPane.alignment="CENTER">
+            <children>
+                <ListView fx:id="listView" layoutX="31.0" layoutY="36.0" onMouseClicked="#clicked" prefHeight="438.0" prefWidth="250.0" />
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="325.0" prefWidth="577.0" BorderPane.alignment="CENTER">
+            <children>
+                <WebView fx:id="webView" layoutX="53.0" layoutY="39.0" prefHeight="441.0" prefWidth="482.0" />
+            </children></AnchorPane>
+    </center>
+</BorderPane>
