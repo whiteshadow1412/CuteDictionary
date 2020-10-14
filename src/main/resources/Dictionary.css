@@ -1,0 +1,55 @@
+.root
+{
+    -fx-background-color: #87CEEB;
+}
+.list-view{
+    -fx-background-color: #87CEEB ;
+    -fx-font-size: 15;
+}
+.text-field
+{
+    -fx-font-size: 15;
+    -fx-background-radius: 35;
+}
+.menu-bar
+{
+    -fx-background-color: #87CEEB ;
+    -fx-font-size: 16;
+    -fx-font-style: Arial;
+}
+.text-area{
+    -fx-background-color: #87CEEB;
+    -fx-font-style: italic;
+    -fx-font-size: 20;
+}
+.menu-item {
+    -fx-background-color: #87CEEB;
+}
+
+#speaker
+{
+    -fx-border-radius: 30;
+    -fx-background-radius:30;
+    -fx-background-color: #87CEEB;
+    -fx-background-image: url("speaker.png");
+    -fx-background-size: 53px;
+}
+#delete
+{
+    -fx-border-radius: 30;
+    -fx-background-radius:30;
+    -fx-background-color: #87ceeb;
+    -fx-background-image: url("delete.png");
+    -fx-background-size: 55px;
+}
+#searchButton
+{
+    -fx-border-radius: 30;
+    -fx-background-radius:30;
+    -fx-background-color: #87ceeb;
+    -fx-background-image: url("brain.png");
+    -fx-background-size: 57px;
+}
+
+
+

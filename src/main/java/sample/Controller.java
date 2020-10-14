@@ -37,11 +37,23 @@ public class Controller extends Dictionary implements Initializable {
     public WebEngine webEngine;
     public TextField targetEdit;
     public TextField explainEdit;
+    public Button speaker;
+    public Button delete;
+    public Menu s1;
+
 
     public void initialize(URL location, ResourceBundle resources) {
 
         final ToolBar toolBar = new ToolBar();
         final Tooltip tooltip0 = new Tooltip();
+        tooltip0.setText("Click to speak !");
+        speaker.setTooltip(tooltip0);
+        final Tooltip tooltip1 = new Tooltip();
+        tooltip1.setText("Click to delete !");
+        delete.setTooltip(tooltip0);
+        final Tooltip tooltip2 = new Tooltip();
+        tooltip2.setText("Click to search !");
+        searchButton.setTooltip(tooltip0);
         try {
             //DictionaryManagement.InsertFromFile();
             DictionaryHTMLManagement.insertFromFile();
@@ -101,10 +113,19 @@ public class Controller extends Dictionary implements Initializable {
         String w_target_ = searchField.getText();
         //String w_explain_ = textArea.getText();
         //Word w = new Word(w_target_,w_explain_);
+        if(w_target_.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Failed!");
+            alert.setHeaderText(null);
+            alert.setContentText("Nothing to delete" + "\n" +
+                    "You must select 1 word");
+            alert.showAndWait();
+            return;
+        }
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Warning!");
         alert.setHeaderText(null);
-        alert.setContentText("This word " + '"' + w_target_ + '"' + " will be deleted" + "\n" +
+        alert.setContentText("This word " + '"' + w_target_ + '"' + " was deleted" + "\n" +
                 "You can't search it again");
         alert.showAndWait();
         webEngine.loadContent("<html></html>","text/html");
@@ -205,9 +226,18 @@ public class Controller extends Dictionary implements Initializable {
     }
 
     public void Speak(MouseEvent event) {
-        String spelling = searchField.getText();
+        String w_target = searchField.getText();
+        if(w_target.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Failed!");
+            alert.setHeaderText(null);
+            alert.setContentText("Nothing to Speak" + "\n" +
+                    "You must select 1 word");
+            alert.showAndWait();
+            return;
+        }
         try {
-            GoogleAPI.speak(spelling);
+            GoogleAPI.speak(w_target);
         } catch (IOException e) {
             System.out.println("[ERROR]: Speak word.");
         }
